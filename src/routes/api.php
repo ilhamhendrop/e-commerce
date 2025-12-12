@@ -15,8 +15,8 @@ Route::controller(UserController::class)->group(function () {
 });
 
 Route::controller(ProductController::class)->group(function () {
-        Route::get('/product/list', 'ListProduct');
-        Route::get('/product/{id}/detail', 'DetailProduct');
+        Route::get('/product', 'ListProduct');
+        Route::get('/product/{id}', 'DetailProduct');
     });
 
 Route::middleware(['auth:sanctum', 'role:' . RoleEnum::ADMIN->value])->group(function () {
@@ -25,20 +25,20 @@ Route::middleware(['auth:sanctum', 'role:' . RoleEnum::ADMIN->value])->group(fun
     });
 
     Route::prefix('/admin')->controller(UserController::class)->group(function () {
-        Route::get('/user/list', 'ListUser');
-        Route::post('/user/add', 'CreateUser');
-        Route::get('/user/{id}/detail', 'DetailUser');
-        Route::patch('/user/{id}/edit/data', 'UpdateUserData');
-        Route::patch('/user/{id}/edit/password', 'UpdateUserPassword');
+        Route::get('/user', 'ListUser');
+        Route::post('/user', 'CreateUser');
+        Route::get('/user/{id}', 'DetailUser');
+        Route::patch('/user/{id}/data', 'UpdateUserData');
+        Route::patch('/user/{id}/password', 'UpdateUserPassword');
         Route::delete('/user/{id}/delete', 'DeleteUser');
     });
 
     Route::prefix('/admin')->controller(ProductController::class)->group(function () {
-        Route::get('/product/list', 'ListProduct');
-        Route::post('/product/add', 'CreateProduct');
-        Route::get('/product/{id}/detail', 'DetailProduct');
-        Route::patch('/product/{id}/edit/data', 'UpdateProductData');
-        Route::patch('/product/{id}/edit/image', 'UpdateProductImage');
-        Route::delete('/product/{id}/delete', 'DeleteProduct');
+        Route::get('/product', 'ListProduct');
+        Route::post('/product', 'CreateProduct');
+        Route::get('/product/{id}', 'DetailProduct');
+        Route::patch('/product/{id}/data', 'UpdateProductData');
+        Route::patch('/product/{id}/image', 'UpdateProductImage');
+        Route::delete('/product/{id}', 'DeleteProduct');
     });
 });

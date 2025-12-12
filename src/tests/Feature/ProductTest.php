@@ -31,7 +31,7 @@ class ProductTest extends TestCase
             'image' => UploadedFile::fake()->image('product.jpg'),
         ];
 
-        $respone = $this->postJson('/api/admin/product/add', $data);
+        $respone = $this->postJson('/api/admin/product', $data);
         $respone->assertStatus(200);
         $this->assertDatabaseHas('products', ['name' => 'Laptop']);
     }
@@ -42,7 +42,7 @@ class ProductTest extends TestCase
 
         Product::factory()->count(3)->create();
 
-        $respone = $this->getJson('/api/admin/product/list');
+        $respone = $this->getJson('/api/admin/product');
         $respone->assertStatus(200);
         $respone->assertJsonCount(3, 'data');
     }
@@ -60,7 +60,7 @@ class ProductTest extends TestCase
             'price' => 999999,
         ];
 
-        $response = $this->patchJson("/api/admin/product/{$product->id}/edit/data", $payload);
+        $response = $this->patchJson("/api/admin/product/{$product->id}/data", $payload);
 
         $response->assertStatus(200);
 
@@ -81,7 +81,7 @@ class ProductTest extends TestCase
         $newImage = UploadedFile::fake()->image('new_product.jpg', 500, 500);
 
         $response = $this->patchJson(
-            "/api/admin/product/{$product->id}/edit/image",
+            "/api/admin/product/{$product->id}/image",
             [
                 'image' => $newImage
             ]
@@ -105,7 +105,7 @@ class ProductTest extends TestCase
 
         $product = Product::factory()->create();
 
-        $response = $this->deleteJson("/api/admin/product/{$product->id}/delete");
+        $response = $this->deleteJson("/api/admin/product/{$product->id}");
 
         $response->assertStatus(200);
 
