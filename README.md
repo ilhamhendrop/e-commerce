@@ -11,4 +11,5 @@ jalankan docker compose up -d
 jalankan docker compose exec app composer install
 jalankan docker compose exec app php artisan key:generate
 jalankan docker compose exec app php artisan migrate --seed
+jalankan docker compose exec app php artisan storage:link
 
