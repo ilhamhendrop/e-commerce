@@ -8,6 +8,8 @@ services:
     working_dir: /var/www
     volumes:
       - ./src:/var/www:cached
+      - storage_volume:/var/www/storage
+      - public_storage_volume:/var/www/public/storage
       - ./docker/php/php-fpm.conf:/usr/local/etc/php-fpm.d/zz-custom.conf
       - ./docker/php/opcache.ini:/usr/local/etc/php/conf.d/opcache.ini
     depends_on:
@@ -18,6 +20,9 @@ services:
       interval: 10s
       timeout: 5s
       retries: 3
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
     cpus: 1.5
     mem_limit: 1.5g
     networks:
@@ -31,6 +36,7 @@ services:
       - "80:80"
     volumes:
       - ./src:/var/www:cached
+      - public_storage_volume:/var/www/public/storage
       - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - app
@@ -84,6 +90,8 @@ services:
 volumes:
   pgdata:
   redisdata:
+  storage_volume:
+  public_storage_volume:
 
 networks:
   laravel:
