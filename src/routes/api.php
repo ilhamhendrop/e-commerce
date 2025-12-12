@@ -30,7 +30,7 @@ Route::middleware(['auth:sanctum', 'role:' . RoleEnum::ADMIN->value])->group(fun
         Route::get('/users/{id}', 'DetailUser');
         Route::patch('/users/{id}', 'UpdateUserData');
         Route::patch('/users/{id}/password', 'UpdateUserPassword');
-        Route::delete('/users/{id}/delete', 'DeleteUser');
+        Route::delete('/users/{id}', 'DeleteUser');
     });
 
     Route::prefix('/admin')->controller(ProductController::class)->group(function () {
