@@ -50,10 +50,6 @@ Route::middleware(['auth:sanctum', 'role:'. RoleEnum::USER->value])->group(funct
 
     Route::prefix('/user')->controller(ProductController::class)->group(function () {
         Route::get('/products', 'ListProduct');
-        Route::post('/products', 'CreateProduct');
         Route::get('/products/{id}', 'DetailProduct');
-        Route::patch('/products/{id}', 'UpdateProductData');
-        Route::patch('/products/{id}/image', 'UpdateProductImage');
-        Route::delete('/products/{id}', 'DeleteProduct');
     });
 });
