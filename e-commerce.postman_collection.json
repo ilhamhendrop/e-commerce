@@ -10,42 +10,6 @@
 			"name": "User",
 			"item": [
 				{
-					"name": "UserList",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "2|6kqDbCYHtY4ezFrVMLgBb2qDdwaxeCLzgdwdKCgx9d1bf33f",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost/api/admin/users",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"path": [
-								"api",
-								"admin",
-								"users"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "CreateUser",
 					"request": {
 						"auth": {
@@ -79,37 +43,6 @@
 								"api",
 								"admin",
 								"users"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "UserDetail",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "2|6kqDbCYHtY4ezFrVMLgBb2qDdwaxeCLzgdwdKCgx9d1bf33f",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost/api/admin/users/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"path": [
-								"api",
-								"admin",
-								"users",
-								"1"
 							]
 						}
 					},
@@ -239,403 +172,413 @@
 			"name": "Product",
 			"item": [
 				{
-					"name": "ProductList",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "2|6kqDbCYHtY4ezFrVMLgBb2qDdwaxeCLzgdwdKCgx9d1bf33f",
-									"type": "string"
+					"name": "Admin",
+					"item": [
+						{
+							"name": "CreateProduct",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "2|6kqDbCYHtY4ezFrVMLgBb2qDdwaxeCLzgdwdKCgx9d1bf33f",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Laptop5",
+											"type": "text"
+										},
+										{
+											"key": "desc",
+											"value": "gaming",
+											"type": "text"
+										},
+										{
+											"key": "category",
+											"value": "electornic",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "12000",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/Users/ilhamhendrop/Downloads/Laptop.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost/api/admin/products",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"api",
+										"admin",
+										"products"
+									]
 								}
-							]
+							},
+							"response": []
 						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
+						{
+							"name": "UpdateData",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "1|YvWH2gJPL3LR1H7jnwGnKwgErFEKTWSYRHIR0hsa79501fab",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "laptop",
+											"type": "text"
+										},
+										{
+											"key": "desc",
+											"value": "gaming-gaming",
+											"type": "text"
+										},
+										{
+											"key": "category",
+											"value": "electro",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "20000",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost/api/admin/products/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"api",
+										"admin",
+										"products",
+										"1"
+									]
+								}
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "http://localhost/api/admin/products",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"path": [
-								"api",
-								"admin",
-								"products"
-							]
+						{
+							"name": "UpdateProductImage",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "1|YvWH2gJPL3LR1H7jnwGnKwgErFEKTWSYRHIR0hsa79501fab",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "laptop",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "desc",
+											"value": "gaming-gaming",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "category",
+											"value": "electro",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "price",
+											"value": "20000",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/Users/ilhamhendrop/Downloads/laptop2.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost/api/admin/products/1/image",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"api",
+										"admin",
+										"products",
+										"1",
+										"image"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteProduct",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "3|6sOjaWb4iA1Xu23mHDk50DPPCOipIeTNTkOXMwOd4ab2f76e",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "laptop",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "desc",
+											"value": "gaming-gaming",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "category",
+											"value": "electro",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "price",
+											"value": "20000",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/Users/ilhamhendrop/Downloads/laptop2.png",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost/api/admin/products/5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"api",
+										"admin",
+										"products",
+										"5"
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				},
 				{
-					"name": "CreateProduct",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "2|6kqDbCYHtY4ezFrVMLgBb2qDdwaxeCLzgdwdKCgx9d1bf33f",
-									"type": "string"
+					"name": "User",
+					"item": [
+						{
+							"name": "ProductList",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "4|A1OOTLhGr3Bpod5BrDZdpdsKLvoYc8sE1iA2AGkQde102409",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost/api/user/products",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"api",
+										"user",
+										"products"
+									]
 								}
-							]
+							},
+							"response": []
 						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "name",
-									"value": "Laptop5",
-									"type": "text"
+						{
+							"name": "DetailProduct",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "4|A1OOTLhGr3Bpod5BrDZdpdsKLvoYc8sE1iA2AGkQde102409",
+											"type": "string"
+										}
+									]
 								},
-								{
-									"key": "desc",
-									"value": "gaming",
-									"type": "text"
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
 								},
-								{
-									"key": "category",
-									"value": "electornic",
-									"type": "text"
-								},
-								{
-									"key": "price",
-									"value": "12000",
-									"type": "text"
-								},
-								{
-									"key": "image",
-									"type": "file",
-									"src": "/Users/ilhamhendrop/Downloads/Laptop.png"
+								"url": {
+									"raw": "http://localhost/api/user/products/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"api",
+										"user",
+										"products",
+										"1"
+									]
 								}
-							]
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "http://localhost/api/admin/products",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"path": [
-								"api",
-								"admin",
-								"products"
-							]
+						{
+							"name": "ProductListSearch",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "4|A1OOTLhGr3Bpod5BrDZdpdsKLvoYc8sE1iA2AGkQde102409",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost/api/user/products?search=laptop&category=electro",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"api",
+										"user",
+										"products"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "laptop"
+										},
+										{
+											"key": "category",
+											"value": "electro"
+										}
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
-				},
-				{
-					"name": "DetailProduct",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "1|YvWH2gJPL3LR1H7jnwGnKwgErFEKTWSYRHIR0hsa79501fab",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "http://localhost/api/admin/products/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"path": [
-								"api",
-								"admin",
-								"products",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "UpdateData",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "1|YvWH2gJPL3LR1H7jnwGnKwgErFEKTWSYRHIR0hsa79501fab",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PATCH",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "name",
-									"value": "laptop",
-									"type": "text"
-								},
-								{
-									"key": "desc",
-									"value": "gaming-gaming",
-									"type": "text"
-								},
-								{
-									"key": "category",
-									"value": "electro",
-									"type": "text"
-								},
-								{
-									"key": "price",
-									"value": "20000",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "http://localhost/api/admin/products/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"path": [
-								"api",
-								"admin",
-								"products",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "UpdateProductImage",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "1|YvWH2gJPL3LR1H7jnwGnKwgErFEKTWSYRHIR0hsa79501fab",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PATCH",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "name",
-									"value": "laptop",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "desc",
-									"value": "gaming-gaming",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "category",
-									"value": "electro",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "price",
-									"value": "20000",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "image",
-									"type": "file",
-									"src": "/Users/ilhamhendrop/Downloads/laptop2.png"
-								}
-							]
-						},
-						"url": {
-							"raw": "http://localhost/api/admin/products/1/image",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"path": [
-								"api",
-								"admin",
-								"products",
-								"1",
-								"image"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "DeleteProduct",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "1|YvWH2gJPL3LR1H7jnwGnKwgErFEKTWSYRHIR0hsa79501fab",
-									"type": "string"
-								}
-							]
-						},
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "name",
-									"value": "laptop",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "desc",
-									"value": "gaming-gaming",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "category",
-									"value": "electro",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "price",
-									"value": "20000",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "image",
-									"type": "file",
-									"src": "/Users/ilhamhendrop/Downloads/laptop2.png",
-									"disabled": true
-								}
-							]
-						},
-						"url": {
-							"raw": "http://localhost/api/admin/products/2",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"path": [
-								"api",
-								"admin",
-								"products",
-								"2"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "ProductListSearch",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "2|6kqDbCYHtY4ezFrVMLgBb2qDdwaxeCLzgdwdKCgx9d1bf33f",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost/api/admin/products?search=laptop&category=electro",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"path": [
-								"api",
-								"admin",
-								"products"
-							],
-							"query": [
-								{
-									"key": "search",
-									"value": "laptop"
-								},
-								{
-									"key": "category",
-									"value": "electro"
-								}
-							]
-						}
-					},
-					"response": []
+					]
 				}
 			]
 		},
@@ -662,7 +605,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"username\": \"Admin\",\n    \"password\": \"Ab123.Ab\"\n}",
+					"raw": "{\n    \"username\": \"User\",\n    \"password\": \"Ab123.Ab\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -691,7 +634,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "1|Xe4nZ7ACYaUHgAR8h18Yh6IZh6dpiG7KKeKRzyou1f632a9c",
+							"value": "4|A1OOTLhGr3Bpod5BrDZdpdsKLvoYc8sE1iA2AGkQde102409",
 							"type": "string"
 						}
 					]
@@ -705,14 +648,13 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost/api/admin/logout",
+					"raw": "http://localhost/api/logout",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"api",
-						"admin",
 						"logout"
 					]
 				}
@@ -742,7 +684,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"username\": \"Admin2\",\n    \"name\": \"Admin2\",\n    \"email\": \"admin2@ecom.com\",\n    \"password\": \"Ab123.Ab\",\n    \"password_confirmation\": \"Ab123.Ab\",\n    \"role\": \"admin\"\n}",
+					"raw": "{\n    \"username\": \"User\",\n    \"name\": \"User\",\n    \"email\": \"user@ecom.com\",\n    \"password\": \"Ab123.Ab\",\n    \"password_confirmation\": \"Ab123.Ab\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"

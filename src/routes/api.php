@@ -21,7 +21,7 @@ Route::controller(ProductController::class)->group(function () {
 
 Route::middleware(['auth:sanctum', 'role:' . RoleEnum::ADMIN->value])->group(function () {
     Route::controller(LoginController::class)->group(function () {
-        Route::get('/admin/logout', 'logout');
+        Route::get('/logout', 'logout');
     });
 
     Route::prefix('/admin')->controller(UserController::class)->group(function () {
@@ -34,6 +34,21 @@ Route::middleware(['auth:sanctum', 'role:' . RoleEnum::ADMIN->value])->group(fun
     });
 
     Route::prefix('/admin')->controller(ProductController::class)->group(function () {
+        Route::get('/products', 'ListProduct');
+        Route::post('/products', 'CreateProduct');
+        Route::get('/products/{id}', 'DetailProduct');
+        Route::patch('/products/{id}', 'UpdateProductData');
+        Route::patch('/products/{id}/image', 'UpdateProductImage');
+        Route::delete('/products/{id}', 'DeleteProduct');
+    });
+});
+
+Route::middleware(['auth:sanctum', 'role:'. RoleEnum::USER->value])->group(function () {
+    Route::controller(LoginController::class)->group(function () {
+        Route::get('/logout', 'logout');
+    });
+
+    Route::prefix('/user')->controller(ProductController::class)->group(function () {
         Route::get('/products', 'ListProduct');
         Route::post('/products', 'CreateProduct');
         Route::get('/products/{id}', 'DetailProduct');
